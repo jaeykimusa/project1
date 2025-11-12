@@ -21,7 +21,8 @@ class RK4:
         # existing initialization...
         this.f = function
         this.y = y_0
-        this.x = x_0
+        this.x_0 = x_0
+        this.x = this.x_0
         # this.x_lb = x_lb
         # this.x_ub = x_ub
         this.h = h
@@ -41,10 +42,16 @@ class RK4:
         
         n = y.n
 
-        k1 = f(x, y)
-        k2 = f(x + h/2, StateVec(n=n, x_init=(y.x + (1/2)*k1.x*h)))
-        k3 = f(x + h/2, StateVec(n=n, x_init=(y.x + (1/2)*k2.x*h)))
-        k4 = f(x + h, StateVec(n=n, x_init=y.x + k3.x*h))
+        if x == this.x_0:
+            k1 = f(x, y, True)
+            k2 = f(x + h/2, StateVec(n=n, x_init=(y.x + (1/2)*k1.x*h)), True)
+            k3 = f(x + h/2, StateVec(n=n, x_init=(y.x + (1/2)*k2.x*h)), True)
+            k4 = f(x + h, StateVec(n=n, x_init=y.x + k3.x*h), True)
+        else:
+            k1 = f(x, y, False)
+            k2 = f(x + h/2, StateVec(n=n, x_init=(y.x + (1/2)*k1.x*h)), False)
+            k3 = f(x + h/2, StateVec(n=n, x_init=(y.x + (1/2)*k2.x*h)), False)
+            k4 = f(x + h, StateVec(n=n, x_init=y.x + k3.x*h), False)
 
         this.x += h
         this.y = StateVec(n=n, x_init=(this.y.x + (1/6)*(k1.x + 2*k2.x + 2*k3.x + k4.x)*h))
