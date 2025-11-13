@@ -2,7 +2,6 @@
 
 **Course:** MAE 495/589 - Computational Methods in Engineering  
 **Instructor:** Dr. Hooman Tafreshi  
-**Due:** October 16, 2025
 
 ## Project
 
@@ -15,9 +14,9 @@ This project simulates a flexible cord (bungee cord) using two approaches:
 ```
 .
 ├── examples/
-|      ├── sim_eample_simple_hanging_extended_points.py
-|      ├── sim_example_simple_hanging.py
-|      └── sim_example_sin_wave.py
+|      ├── sim_msd_simple_hanging_extended_nodes.py
+|      ├── sim_msd_simple_hanging.py
+|      └── sim_msd_sin_wave.py
 ├── point_masses_simulation.py
 ├── point_masses_system.py
 ├── math_utils.py
@@ -54,10 +53,10 @@ pip install -r requirements.txt --break-system-packages
 
 ### Quick Start - Run All Simulations
 
-To run simple MSG cord system hanging, try:
+To run simple MSD cord system hanging, try:
 
 ```bash
-python -m examples.sim_example_simple_hanging
+python -m examples.sim_msd_simple_hanging
 ```
 
 <!--
@@ -72,12 +71,12 @@ This will:
 
 #### 1. Mass-spring-damper simulation with sin wave
 ```bash
-python -m sim_example_sin_wave
+python -m examples.sim_msd_sin_wave
 ```
 
 #### 2. Mass-spring-damper simulation with extended point mass nodes
 ```bash
-python -m sim_example_simple_hanging.py
+python -m examples.sim_msd_simple_hanging_extended_nodes.py
 ```
 
 <!--
@@ -105,3 +104,15 @@ python traveling_wave_simulation.py
 ```
 - Generates: `wave_propagation.png`, `traveling_wave.mp4`
 -->
+
+
+## Results
+
+#### Mass-spring-damper cord hanging with dynamics equation: 
+<img src="https://github.com/user-attachments/assets/66f42944-0a7c-4a0c-9e13-13c96d69aea6" width="350">
+
+#### Mass-spring-damper simulation with sin wave (gravity = 0)
+<img src="https://github.com/user-attachments/assets/962b50e3-ac7c-4e8b-a987-199093d4afcc" width="350">
+
+#### Mass-spring-damper simulation with extended point mass nodes (external forces in +y)
+<img src="https://github.com/user-attachments/assets/1118a519-476f-4515-a5be-d63aee7a6e68" width="350">
