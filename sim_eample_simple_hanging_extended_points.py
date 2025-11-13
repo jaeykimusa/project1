@@ -6,7 +6,7 @@ from point_masses_simulation import PointMassesSimulation
 def main():
     k_s = 1000
     k_d = 1.1
-    m = 0.010
+    m = 0.005
     n_m = 50
     n_nodes = n_m + 2
     l_cord = 1

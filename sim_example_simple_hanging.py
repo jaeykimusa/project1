@@ -7,14 +7,14 @@ def main():
     k_s = 1000
     k_d = 1.0
     m = 0.010
-    n_m = 50
+    n_m = 14
     n_nodes = n_m + 2
     l_cord = 1
     l_cord_step = l_cord/(n_m+1)
     g = 9.81
     dt = 0.002
     sim_time = 10.0
-    f_external = np.array([30, 50])
+    f_external = np.array([0, 50])
 
     def f(t, x: StateVec, f_external_applied: bool):
         x_dot = StateDerivativeVec(n_nodes)
