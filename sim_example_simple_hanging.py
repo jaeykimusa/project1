@@ -34,7 +34,7 @@ def main():
             f_d_next = -k_d * (x.v(i) - x.v(i+1))
 
             if f_external_applied:
-                f_total = f_s_previous + f_s_next + f_d_previous + f_d_next + f_external
+                f_total = f_s_previous + f_s_next + f_d_previous + f_d_next #+ f_external
             else:
                 f_total = f_s_previous + f_s_next + f_d_previous + f_d_next
             
